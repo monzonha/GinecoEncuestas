@@ -46,6 +46,14 @@
             color: #34495e;
             font-size: 12px;
         }
+        .question-label2 {
+            font-weight: 600;
+            height: 24px;
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-size: 12px;
+        }
         .label1 {
             font-weight: 600;
             height: 16px;
@@ -179,27 +187,21 @@
             <label class="radio-option"><input type="radio" name="edad" value="56 o más"> 56 años o más</label>
         </div>
 
-        <!-- Campo 2: Nombre -->
-        <div class="form-group">
-            <label class="question-label" for="nombre">Nombre Completo:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
-        </div>
-
-        <!-- Campo 3: Diagnóstico previo -->
+        <!-- Campo 2: Diagnóstico previo -->
         <div class="form-group">
             <span class="question-label">¿Tiene diagnóstico previo de Síndrome de Ovario Poliquístico?</span>
             <label class="radio-option"><input type="radio" name="Diagnóstico" value="Si" required> Si</label>
             <label class="radio-option"><input type="radio" name="Diagnóstico" value="No"> No</label>
         </div>
 
-        <!-- Campo 4: Quistes -->
+        <!-- Campo 3: Quistes -->
         <div class="form-group">
             <span class="question-label">¿Es verdad que para clasificar con síndrome de ovario se deben de tener quistes en al menos un ovario?</span>
             <label class="radio-option"><input type="radio" name="Quistes" value="Cierto" required> Cierto</label>
             <label class="radio-option"><input type="radio" name="Quistes" value="Falso"> Falso</label>
         </div>
 
-        <!-- Campo 5: Objetivo Tratamiento SOP -->
+        <!-- Campo 4: Objetivo Tratamiento SOP -->
         <div class="form-group">
             <span class="question-label">¿Cual es el objetivo principal del tratamiento de SOP (síndrome de ovario poliquístico)?</span>
             <span class="help-text">(Seleccione todas las opciones que correspondan)</span>
@@ -214,7 +216,7 @@
             <label class="checkbox-option"><input type="checkbox" name="Objetivo_SOP" value="Riesgo Cardiovascular"> h)	Disminuir el riesgo cardiovascular </label>
         </div>
 
-        <!-- Campo 6: Tratamiento SOP -->
+        <!-- Campo 5: Tratamiento SOP -->
         <div class="form-group">
             <span class="question-label">¿Cual es el tratamiento del SOP?</span>
             <span class="help-text">(Seleccione todas las opciones que correspondan)</span>
@@ -233,7 +235,7 @@
             <label class="label1" for="Conocimiento">2. Conocimiento del cambio de nombre</label>
         </div>        
 
-        <!-- Campo 7: Conocimiento Cambio Nombre-->
+        <!-- Campo 6: Conocimiento Cambio Nombre-->
         <div class="form-group">
             <span class="question-label">¿Ha escuchado alguna vez que el nombre “Síndrome de Ovario Poliquístico” ha cambiado a “Síndrome Ovárico Metabólico Poliendocrino”?</span>
             <label class="radio-option"><input type="radio" name="ConoceCambio" value="Si" required> Si</label>
@@ -241,7 +243,7 @@
             <label class="radio-option"><input type="radio" name="ConoceCambio" value="No se"> No estoy segura</label>
         </div>
 
-        <!-- Campo 8: Explicaron porqué el Cambio de Nombre-->
+        <!-- Campo 7: Explicaron porqué el Cambio de Nombre-->
         <div class="form-group">
             <span class="question-label">¿Le explicaron el motivo de este cambio en su consulta médica?</span>
             <label class="radio-option"><input type="radio" name="PorqueCambio" value="Si" required> Si</label>
@@ -254,7 +256,7 @@
             <label class="label1" for="Opinión">3. Opinión sobre el nuevo nombre</label>
         </div>        
 
-        <!-- Campo 9: nuevo nombre describe mejor su condición -->
+        <!-- Campo 8: nuevo nombre describe mejor su condición -->
         <div class="form-group">
             <span class="question-label">¿Cree que el nuevo nombre describe mejor su condición y sus síntomas?</span>
             <label class="radio-option"><input type="radio" name="MejorDescripción" value="Mejor" required> Sí, mucho mejor</label>
@@ -263,20 +265,12 @@
             <label class="radio-option"><input type="radio" name="MejorDescripción" value="Peor"> No, es peor</label>
         </div>
 
-        <!-- Campo 10: nuevo nombre es más fácil o más difícil  -->
+        <!-- Campo 9: nuevo nombre es más fácil o más difícil  -->
         <div class="form-group">
             <span class="question-label">¿Le parece que el nuevo nombre es más fácil o más difícil de entender?</span>
             <label class="radio-option"><input type="radio" name="FácilEntender" value="Fácil" required> Más fácil</label>
             <label class="radio-option"><input type="radio" name="FácilEntender" value="Igual"> Igual de fácil</label>
             <label class="radio-option"><input type="radio" name="FácilEntender" value="Difícil"> Más difícil</label>
-        </div>
-
-        <!-- Campo 11: El cambio ayuda a entender mejor   -->
-        <div class="form-group">
-            <span class="question-label">¿El cambio de nombre le ayuda a entender mejor cómo afecta su salud general (no solo los ovarios)?</span>
-            <label class="radio-option"><input type="radio" name="AyudaEntender" value="Si" required> Si</label>
-            <label class="radio-option"><input type="radio" name="AyudaEntender" value="No"> No</label>
-            <label class="radio-option"><input type="radio" name="AyudaEntender" value="Insegura"> No estoy segura</label>
         </div>
 
         <!-- ==================================================================================================== -->
@@ -285,7 +279,7 @@
             <label class="label1" for="Impacto">4. Impacto emocional y social</label>
         </div>        
 
-        <!-- Campo 12: sensación o reacción emocional -->
+        <!-- Campo 10: sensación o reacción emocional -->
         <div class="form-group">
             <span class="question-label">¿Cambiar el nombre le genera alguna sensación o reacción emocional?</span>
             <span class="help-text">(Seleccione todas las opciones que correspondan)</span>
@@ -297,7 +291,7 @@
             <label class="checkbox-option"><input type="checkbox" name="Reacción" value="Indiferencia"> Indiferencia </label>
         </div>
 
-        <!-- Campo 13: El cambio afecta como otras personas entieden su enfermedad   -->
+        <!-- Campo 11: El cambio afecta como otras personas entieden su enfermedad   -->
         <div class="form-group">
             <span class="question-label">¿El cambio de nombre le ayuda a entender mejor cómo afecta su salud general (no solo los ovarios)?</span>
             <label class="radio-option"><input type="radio" name="AfectaEntender" value="positivamente" required> Sí, positivamente</label>
@@ -312,13 +306,13 @@
             <label class="label1" for="Info Adicional">5. Información adicional</label>
         </div>        
 
-        <!-- Pregunta 14: Opinión Abierta -->
+        <!-- Pregunta 12: Opinión Abierta -->
         <div class="form-group">
-            <label class="question-label" for="Opinión">¿Qué le gustaría que los profesionales de salud le expliquen sobre esta nueva nomenclatura?</label>
+            <label class="question-label2" for="Opinión">¿Qué le gustaría que los profesionales de salud le expliquen sobre esta nueva nomenclatura?</label>
             <textarea id="Opinión" name="Opinión" placeholder="Escriba aquí sus comentarios de forma libre..." required></textarea>
         </div>
 
-        <!-- Pregunta 15: Comentarios -->
+        <!-- Pregunta 13: Comentarios -->
         <div class="form-group">
             <label class="question-label" for="Comentarios">¿Tiene algún comentario o inquietud adicional sobre este cambio?</label>
             <textarea id="Comentarios" name="Comentarios" placeholder="Escriba aquí sus comentarios de forma libre..." required></textarea>
