@@ -379,10 +379,12 @@
 	const respuestaAfectaEntender = document.querySelector('input[name="AfectaEntender"]:checked').value;
         formData.append('AfectaEntender', respuestaAfectaEntender);
 
-	const respuestaOpinión = document.querySelector('input[name="Opinión"]:checked').value;
+	// Leer dato del textarea Opinión
+	const respuestaOpinión = document.getElementById('Opinión').value;
         formData.append('Opinión', respuestaOpinión);
 
-	const respuestaComentarios = document.querySelector('input[name="Comentarios"]:checked').value;
+	// Leer dato del textarea Comentarios
+	const respuestaComentarios = document.getElementById('Comentarios').value;
         formData.append('Comentarios', respuestaComentarios);
 
         fetch(scriptURL, { method: 'POST', body: formData})
