@@ -328,9 +328,10 @@
     // const scriptURL = 'https://script.google.com/macros/s/AKfycbzeGZDTbohtR43V8mpzLqtlXkBFEOMmYsV-Mlrle068qhIbA3k-etsDciriWMTdLq_NlQ/exec'; // <--- PEGA TU URL DE GOOGLE APPS SCRIPT AQUÍ
     //	https://script.google.com/macros/s/AKfycbwi7whgI9EGa8StBFaJ29RsykMF2Ktbwk8zJS6S5EAU/dev
     //  const scriptURL = 'https://script.google.com/macros/s/AKfycbwQ9r6QhP7-LsytLyIt8nxokAcR__6qhqReX8_tYsnr6MrkfB2x0Dw5HzggD1UxVaNH/exec';
-    //  const scriptURL = 'https://script.google.com/macros/s/AKfycby-YFnbcp1G1eOLOfdIr-H5Dgsf0Z7qrahJLZaeBxsKJnQXwHAd6yRHkPCQHcJpLY1E6A/exec';
-    
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwrwA2UFStLAndrvSpALnjXNCeo12BRuoFC2afM2WAFnGbjJDLCZgC171d2D80qovfR/exec';
+    //  const scriptURL = 'https://script.google.com/macros/s/AKfycby-YFnbcp1G1eOLOfdIr-H5Dgsf0Z7qrahJLZaeBxsKJnQXwHAd6yRHkPCQHcJpLY1E6A/exec';   
+    //  const scriptURL = 'https://script.google.com/macros/s/AKfycbwrwA2UFStLAndrvSpALnjXNCeo12BRuoFC2afM2WAFnGbjJDLCZgC171d2D80qovfR/exec';
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxraBA7Bsv35NMj8XnBKQbH7TLlBUXSGzUCNtOaYh955SyJn9nP2j4fbkOrl5BJNQNstw/exec ';
     const form = document.getElementById('medicalForm');
     const btn = document.getElementById('submitBtn');
 
@@ -339,7 +340,52 @@
         btn.disabled = true;
         btn.innerText = 'Guardando en Excel...';
 
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+	const formData = new FormData();
+        
+	const respuestaedad = document.querySelector('input[name="edad"]:checked').value;
+        formData.append('edad', respuestaedad);
+
+	const respuestaDiagnóstico = document.querySelector('input[name="Diagnóstico"]:checked').value;
+        formData.append('Diagnóstico', respuestaDiagnóstico);
+
+	const respuestaQuistes = document.querySelector('input[name="Quistes"]:checked').value;
+        formData.append('Quistes', respuestaQuistes);
+
+        // Empaqueta las respuestas de la Pregunta Objetivo_SOP unidas por comas
+        const respuestaObjetivo_SOP = Array.from(document.querySelectorAll('input[name="Objetivo_SOP"]:checked')).map(el => el.value);
+        formData.append('Objetivo_SOP', respuestaObjetivo_SOP.join(', '));
+
+        // Empaqueta las respuestas de la Pregunta Tratamiento_SOP unidas por comas
+        const respuestaTratamiento_SOP = Array.from(document.querySelectorAll('input[name="Tratamiento_SOP"]:checked')).map(el => el.value);
+        formData.append('Tratamiento_SOP', respuestaTratamiento_SOP.join(', '));
+
+	const respuestaConoceCambio = document.querySelector('input[name="ConoceCambio"]:checked').value;
+        formData.append('ConoceCambio', respuestaConoceCambio);
+
+	const respuestaPorqueCambio = document.querySelector('input[name="PorqueCambio"]:checked').value;
+        formData.append('PorqueCambio', respuestaPorqueCambio);
+
+	const respuestaMejorDescripción = document.querySelector('input[name="MejorDescripción"]:checked').value;
+        formData.append('MejorDescripción', respuestaMejorDescripción);
+
+	const respuestaFácilEntender = document.querySelector('input[name="FácilEntender"]:checked').value;
+        formData.append('FácilEntender', respuestaFácilEntender);
+
+        // Empaqueta las respuestas de la Pregunta Reacción unidas por comas
+        const respuestaReacción = Array.from(document.querySelectorAll('input[name="Reacción"]:checked')).map(el => el.value);
+        formData.append('Reacción', respuestaReacción.join(', '));
+
+
+	const respuestaAfectaEntender = document.querySelector('input[name="AfectaEntender"]:checked').value;
+        formData.append('AfectaEntender', respuestaAfectaEntender);
+
+	const respuestaOpinión = document.querySelector('input[name="Opinión"]:checked').value;
+        formData.append('Opinión', respuestaOpinión);
+
+	const respuestaComentarios = document.querySelector('input[name="Comentarios"]:checked').value;
+        formData.append('Comentarios', respuestaComentarios);
+
+        fetch(scriptURL, { method: 'POST', body: formData})
             .then(response => {
                 alert('¡Datos registrados correctamente!');
                 btn.disabled = false;
