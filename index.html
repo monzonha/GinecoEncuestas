@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filiación Médica Básica</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f7f4;
+            color: #2c3e50;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .form-card {
+            background-color: #ffffff;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            border-top: 8px solid #028090;
+        }
+        h1 {
+            color: #028090;
+            margin-top: 0;
+            font-size: 20px;
+            text-align: center;
+        }
+        p.subtitle {
+            color: #7f8c8d;
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .question-label {
+            font-weight: 600;
+            height: 14px;
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-size: 12px;
+        }
+        .label1 {
+            font-weight: 600;
+            height: 16px;
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-size: 14px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #dce4ec;
+            border-radius: 6px;
+            background-color: #f8f9fa;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #028090;
+            background-color: #ffffff;
+        }
+        .help-text {
+            height: 14px;
+            font-size: 12px;
+            color: #95a5a6;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .radio-option {
+            height: 14px;
+            display: block;
+            background-color: #f8f9fa;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid #dce4ec;
+            font-size: 12px;
+        }
+        .radio-option:hover {
+            background-color: #e8f4f5;
+            border-color: #028090;
+        }
+        input[type="radio"] {
+            height: 14px;
+            margin-right: 12px;
+            accent-color: #028090;
+            font-size: 12px;
+        }
+        .checkbox-option {
+            height: 14px;
+            display: flex;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid #dce4ec;
+            transition: all 0.2s ease;
+            font-size: 12px;
+        }
+        .checkbox-option:hover {
+            background-color: #e8f4f5;
+            border-color: #028090;
+        }
+        input[type="checkbox"] {
+            height: 14px;
+            margin-right: 15px;
+            accent-color: #028090;
+            transform: scale(1.2);
+            cursor: pointer;
+            font-size: 12px;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            box-sizing: border-box;
+            font-size: 15px;
+            font-family: inherit;
+            resize: vertical;
+            transition: all 0.2s ease;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+        .btn-submit {
+            background-color: #028090;
+            color: #ffffff;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+        .btn-submit:hover {
+            background-color: #00a896;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <h1>Registro General del Paciente</h1>
+    <p class="subtitle">Por favor, ingrese los datos solicitados para iniciar la ficha médica.</p>
+
+    <form id="medicalForm">
+        <!-- Sección 1: Información General -->
+        <div class="form-group">
+            <label class="label1" for="infogeneral">1. Información General</label>
+        </div>        
+
+        <!-- Campo 1: Edad -->
+        <div class="form-group">
+            <span class="question-label">Rango de Edad:</span>
+            <label class="radio-option"><input type="radio" name="edad" value="Menor de 18" required> Menor de 18 años</label>
+            <label class="radio-option"><input type="radio" name="edad" value="18-35"> 18 a 35 años</label>
+            <label class="radio-option"><input type="radio" name="edad" value="36-55"> 36 a 55 años</label>
+            <label class="radio-option"><input type="radio" name="edad" value="56 o más"> 56 años o más</label>
+        </div>
+
+        <!-- Campo 2: Nombre -->
+        <div class="form-group">
+            <label class="question-label" for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
+        </div>
+
+        <!-- Campo 3: Diagnóstico previo -->
+        <div class="form-group">
+            <span class="question-label">¿Tiene diagnóstico previo de Síndrome de Ovario Poliquístico?</span>
+            <label class="radio-option"><input type="radio" name="Diagnóstico" value="Si" required> Si</label>
+            <label class="radio-option"><input type="radio" name="Diagnóstico" value="No"> No</label>
+        </div>
+
+        <!-- Campo 4: Quistes -->
+        <div class="form-group">
+            <span class="question-label">¿Es verdad que para clasificar con síndrome de ovario se deben de tener quistes en al menos un ovario?</span>
+            <label class="radio-option"><input type="radio" name="Quistes" value="Cierto" required> Cierto</label>
+            <label class="radio-option"><input type="radio" name="Quistes" value="Falso"> Falso</label>
+        </div>
+
+        <!-- Campo 5: Objetivo Tratamiento SOP -->
+        <div class="form-group">
+            <span class="question-label">¿Cual es el objetivo principal del tratamiento de SOP (síndrome de ovario poliquístico)?</span>
+            <span class="help-text">(Seleccione todas las opciones que correspondan)</span>
+            
+            <label class="checkbox-option"><input type="checkbox" name="Objetivo_SOP" value="Reducir Ovarios"> a) Reducir el tamaño de los ovarios </label>
+            <label class="checkbox-option"><input type="checkbox" name="Objetivo_SOP" value="Quitar Quistes"> b) Quitar los quistes en los ovarios </label>
+            <label class="checkbox-option"><input type="checkbox" name="Objetivo_SOP" value="Tratar Infertilidad"> c) Tratar la infertilidad </label>
+            <label class="checkbox-option"><input type="checkbox" name="Objetivo_SOP" value="Regular Menstruacion "> d)	Lograr Menstruaciones regulares</label>
+            <label class="checkbox-option"><input type="checkbox" name="Objetivo_SOP" value="Disminuir Cáncer "> e) Disminuir el riesgo de cáncer de endometrio </label>
+            <label class="checkbox-option"><input type="checkbox" name="Objetivo_SOP" value="Disminuir Diabetes"> f) Disminuir el riesgo de diabetes </label>
+            <label class="checkbox-option"><input type="checkbox" name="Objetivo_SOP" value="Tratar Acné"> g) Tratar el acné </label>
+            <label class="checkbox-option"><input type="checkbox" name="Objetivo_SOP" value="Riesgo Cardiovascular"> h)	Disminuir el riesgo cardiovascular </label>
+        </div>
+
+        <!-- Campo 6: Tratamiento SOP -->
+        <div class="form-group">
+            <span class="question-label">¿Cual es el tratamiento del SOP?</span>
+            <span class="help-text">(Seleccione todas las opciones que correspondan)</span>
+            
+            <label class="checkbox-option"><input type="checkbox" name="Tratamiento_SOP" value="Anticonceptivos"> a) Anticonceptivos </label>
+            <label class="checkbox-option"><input type="checkbox" name="Tratamiento_SOP" value="Quitar Quistes"> b) Metformina </label>
+            <label class="checkbox-option"><input type="checkbox" name="Tratamiento_SOP" value="Inositoles"> c) Inositoles </label>
+            <label class="checkbox-option"><input type="checkbox" name="Tratamiento_SOP" value="Hábitos Alimentación"> d) Adecuados hábitos de alimentación </label>
+            <label class="checkbox-option"><input type="checkbox" name="Tratamiento_SOP" value="Ejercicio"> e) Ejercicio </label>
+            <label class="checkbox-option"><input type="checkbox" name="Tratamiento_SOP" value="Peso ideal"> f) Peso ideal </label>
+        </div>
+
+        <!-- ==================================================================================================== -->
+        <!-- Sección 2: Conocimiento del cambio de nombre -->
+        <div class="form-group">
+            <label class="label1" for="Conocimiento">2. Conocimiento del cambio de nombre</label>
+        </div>        
+
+        <!-- Campo 7: Conocimiento Cambio Nombre-->
+        <div class="form-group">
+            <span class="question-label">¿Ha escuchado alguna vez que el nombre “Síndrome de Ovario Poliquístico” ha cambiado a “Síndrome Ovárico Metabólico Poliendocrino”?</span>
+            <label class="radio-option"><input type="radio" name="ConoceCambio" value="Si" required> Si</label>
+            <label class="radio-option"><input type="radio" name="ConoceCambio" value="No"> No</label>
+            <label class="radio-option"><input type="radio" name="ConoceCambio" value="No se"> No estoy segura</label>
+        </div>
+
+        <!-- Campo 8: Explicaron porqué el Cambio de Nombre-->
+        <div class="form-group">
+            <span class="question-label">¿Le explicaron el motivo de este cambio en su consulta médica?</span>
+            <label class="radio-option"><input type="radio" name="PorqueCambio" value="Si" required> Si</label>
+            <label class="radio-option"><input type="radio" name="PorqueCambio" value="No"> No</label>
+        </div>
+
+        <!-- ==================================================================================================== -->
+        <!-- Sección 3: Opinión sobre el nuevo nombre -->
+        <div class="form-group">
+            <label class="label1" for="Opinión">3. Opinión sobre el nuevo nombre</label>
+        </div>        
+
+        <!-- Campo 9: nuevo nombre describe mejor su condición -->
+        <div class="form-group">
+            <span class="question-label">¿Cree que el nuevo nombre describe mejor su condición y sus síntomas?</span>
+            <label class="radio-option"><input type="radio" name="MejorDescripción" value="Mejor" required> Sí, mucho mejor</label>
+            <label class="radio-option"><input type="radio" name="MejorDescripción" value="Poco"> Sí, un poco mejor</label>
+            <label class="radio-option"><input type="radio" name="MejorDescripción" value="Igual"> No, es igual</label>
+            <label class="radio-option"><input type="radio" name="MejorDescripción" value="Peor"> No, es peor</label>
+        </div>
+
+        <!-- Campo 10: nuevo nombre es más fácil o más difícil  -->
+        <div class="form-group">
+            <span class="question-label">¿Le parece que el nuevo nombre es más fácil o más difícil de entender?</span>
+            <label class="radio-option"><input type="radio" name="FácilEntender" value="Fácil" required> Más fácil</label>
+            <label class="radio-option"><input type="radio" name="FácilEntender" value="Igual"> Igual de fácil</label>
+            <label class="radio-option"><input type="radio" name="FácilEntender" value="Difícil"> Más difícil</label>
+        </div>
+
+        <!-- Campo 11: El cambio ayuda a entender mejor   -->
+        <div class="form-group">
+            <span class="question-label">¿El cambio de nombre le ayuda a entender mejor cómo afecta su salud general (no solo los ovarios)?</span>
+            <label class="radio-option"><input type="radio" name="AyudaEntender" value="Si" required> Si</label>
+            <label class="radio-option"><input type="radio" name="AyudaEntender" value="No"> No</label>
+            <label class="radio-option"><input type="radio" name="AyudaEntender" value="Insegura"> No estoy segura</label>
+        </div>
+
+        <!-- ==================================================================================================== -->
+        <!-- Sección 4: Impacto emocional y social -->
+        <div class="form-group">
+            <label class="label1" for="Impacto">4. Impacto emocional y social</label>
+        </div>        
+
+        <!-- Campo 12: sensación o reacción emocional -->
+        <div class="form-group">
+            <span class="question-label">¿Cambiar el nombre le genera alguna sensación o reacción emocional?</span>
+            <span class="help-text">(Seleccione todas las opciones que correspondan)</span>
+            
+            <label class="checkbox-option"><input type="checkbox" name="Reacción" value="Tranquilidad"> Tranquilidad </label>
+            <label class="checkbox-option"><input type="checkbox" name="Reacción" value="Confusión"> Confusión </label>
+            <label class="checkbox-option"><input type="checkbox" name="Reacción" value="Miedo"> Miedo </label>
+            <label class="checkbox-option"><input type="checkbox" name="Reacción" value="Esperanza"> Esperanza </label>
+            <label class="checkbox-option"><input type="checkbox" name="Reacción" value="Indiferencia"> Indiferencia </label>
+        </div>
+
+        <!-- Campo 13: El cambio afecta como otras personas entieden su enfermedad   -->
+        <div class="form-group">
+            <span class="question-label">¿El cambio de nombre le ayuda a entender mejor cómo afecta su salud general (no solo los ovarios)?</span>
+            <label class="radio-option"><input type="radio" name="AfectaEntender" value="positivamente" required> Sí, positivamente</label>
+            <label class="radio-option"><input type="radio" name="AfectaEntender" value="negativamente"> Si, negativamente</label>
+            <label class="radio-option"><input type="radio" name="AfectaEntender" value="Sin cambio"> No cambia nada</label>
+        </div>
+
+
+        <!-- ==================================================================================================== -->
+        <!-- Sección 5: Información adicional -->
+        <div class="form-group">
+            <label class="label1" for="Info Adicional">5. Información adicional</label>
+        </div>        
+
+        <!-- Pregunta 14: Opinión Abierta -->
+        <div class="form-group">
+            <label class="question-label" for="Opinión">¿Qué le gustaría que los profesionales de salud le expliquen sobre esta nueva nomenclatura?</label>
+            <textarea id="Opinión" name="Opinión" placeholder="Escriba aquí sus comentarios de forma libre..." required></textarea>
+        </div>
+
+        <!-- Pregunta 15: Comentarios -->
+        <div class="form-group">
+            <label class="question-label" for="Comentarios">¿Tiene algún comentario o inquietud adicional sobre este cambio?</label>
+            <textarea id="Comentarios" name="Comentarios" placeholder="Escriba aquí sus comentarios de forma libre..." required></textarea>
+        </div>
+
+
+        <button type="submit" class="btn-submit" id="submitBtn">Grabar Respuestas</button>
+    </form>
+</div>
+
+<script>
+
+    // const scriptURL = 'https://script.google.com/macros/s/AKfycbzeGZDTbohtR43V8mpzLqtlXkBFEOMmYsV-Mlrle068qhIbA3k-etsDciriWMTdLq_NlQ/exec'; // <--- PEGA TU URL DE GOOGLE APPS SCRIPT AQUÍ
+    //	https://script.google.com/macros/s/AKfycbwi7whgI9EGa8StBFaJ29RsykMF2Ktbwk8zJS6S5EAU/dev
+    //  const scriptURL = 'https://script.google.com/macros/s/AKfycbwQ9r6QhP7-LsytLyIt8nxokAcR__6qhqReX8_tYsnr6MrkfB2x0Dw5HzggD1UxVaNH/exec';
+    //  const scriptURL = 'https://script.google.com/macros/s/AKfycby-YFnbcp1G1eOLOfdIr-H5Dgsf0Z7qrahJLZaeBxsKJnQXwHAd6yRHkPCQHcJpLY1E6A/exec';
+    
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwrwA2UFStLAndrvSpALnjXNCeo12BRuoFC2afM2WAFnGbjJDLCZgC171d2D80qovfR/exec';
+    const form = document.getElementById('medicalForm');
+    const btn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = 'Guardando en Excel...';
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert('¡Datos registrados correctamente!');
+                btn.disabled = false;
+                btn.innerText = 'Grabar Respuestas';
+                form.reset();
+            })
+            .catch(error => {
+                alert('Hubo un inconveniente al guardar los datos.');
+                btn.disabled = false;
+                btn.innerText = 'Grabar Respuestas';
+            });
+    });
+</script>
+
+</body>
+</html>
